@@ -18,6 +18,21 @@ body {
 html {
   scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 36px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--second-color);
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
 
 ul {
   list-style: none;
@@ -200,8 +215,9 @@ a {
   display: block;
   padding: 2px;
   width: fit-content;
-  background: #fff;
-  border: 1px solid #fff;
+  background: gold;
+  border: 1px solid #ffffff9e;
+  border-radius: 10px;
 }
 
 .item .count-button {
@@ -229,6 +245,9 @@ a {
   display: block;
   width: fit-content;
   margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: cursive;
 }
 
 input[type="checkbox"] {
