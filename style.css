@@ -287,3 +287,11 @@ input[type="checkbox"] {
 .Hide {
   display: none;
 }
+.text-p {
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: "Tajawal";
+}
