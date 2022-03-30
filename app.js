@@ -6,17 +6,20 @@ let buttonsList = document.querySelectorAll(".count-button"); //كل زر للع
 let closed = document.querySelectorAll(".fa-times-circle"); //كل علامة حذف
 let realCount = document.querySelectorAll(".count-is"); //المعدود الفعلي
 
-console.log(Items);
-console.log(buttonsList);
-console.log(closed);
+// console.log(Items);
+// console.log(buttonsList);
+// console.log(closed);
 for (let index = 0; index < closed.length; index++) {
   closed[index].addEventListener("click", function () {
     Items[index].classList.add("hidden");
-    setInterval(hide(Items[index]), 2500);
+    // Items[index].style.cssText = "transform: scale(0);    transition: 0.5s;";
+    // Items[index].addEventListener('transitionend', function(e) {
+    //   Items[index].classList.add('hide');
+    // }
+    Items[index].addEventListener("transitionend", function () {
+      this.classList.add("hide");
+    });
   });
-}
-function hide(e) {
-  e.classList.add("hide");
 }
 
 for (var i = 0; i < buttonsList.length; i++) {
@@ -24,10 +27,10 @@ for (var i = 0; i < buttonsList.length; i++) {
     // console.log();
     let Total = parseInt(this.dataset.count);
     let n = parseInt(this.dataset.countableNumber);
-    console.log(Total);
-    console.log(n);
-    console.log(this.parentNode.childNodes[1].childNodes[1]);
-    console.log(this.parentNode.childNodes[11]);
+    // console.log(Total);
+    // console.log(n);
+    // console.log(this.parentNode.childNodes[1].childNodes[1]);
+    // console.log(this.parentNode.childNodes[11]);
 
     //عشان اوصل من الزرار اللي انا واقف عليه   لأول الكارت أو اول الأيتم ثم منه أروح للأبناء اللي منهم الايقونه اللي انا عاوزها استعنت بالخصائص اللي بتظهر للحاجة في الكونسل ووصلتهله كلك يمين كوبي باث
     let icon = this.parentNode.childNodes[1].childNodes[1];
@@ -36,11 +39,11 @@ for (var i = 0; i < buttonsList.length; i++) {
       this.dataset.countableNumber++;
       span.innerHTML = n;
     } else {
-      console.log("end");
+      // console.log("end");
       span.innerHTML = n;
       icon.classList.add("show");
 
-      console.log(n);
+      // console.log(n);
       //   span.inn = num;
     }
   });
@@ -66,7 +69,7 @@ for (var i = 0; i < buttonsList.length; i++) {
 // }
 //
 var arrayOfTitles = document.getElementsByClassName("class-hover-title");
-console.log(arrayOfTitles);
+// console.log(arrayOfTitles);
 for (var x = 0; x < arrayOfTitles.length; x++) {
   arrayOfTitles[x].addEventListener("click", function () {
     var element = this.nextElementSibling;

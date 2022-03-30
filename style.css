@@ -98,13 +98,19 @@ a {
   align-items: center;
   font-family: "Tajawal", sans-serif;
 }
-
+.task-title:nth-last-child(even) {
+  border-bottom: 7px solid #247cff;
+  border-top: 7px solid #2b5464;
+}
 .task-title:hover {
   background-color: #ddd;
   border-top: 7px solid #2b5464;
   border-bottom: 7px solid #247cff;
 }
-
+.task-title:nth-last-child(even):hover {
+  border-bottom-color: #2b5464;
+  border-top-color: #247cff;
+}
 /*  */
 
 .class-hover-title {
@@ -204,6 +210,7 @@ a {
 }
 
 .item h2 {
+  line-height: 2;
 }
 
 .item h2:hover {
@@ -254,13 +261,9 @@ input[type="checkbox"] {
   display: none;
 }
 .hidden {
-  transition: 2s;
-  animation: hide 2s;
-  -webkit-animation: hide 2s;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
-  -ms-transition: 2s;
-  -o-transition: 2s;
+  transition: 1s;
+  animation: hide 1.5s 1;
+  -webkit-animation: hide 1.5s 1;
 }
 .hide {
   display: none;
@@ -273,8 +276,18 @@ input[type="checkbox"] {
     -ms-transform: scale(1);
     -o-transform: scale(1);
   }
+  50% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+  }
   100% {
     transform: scale(0);
+    /* display: none; */
+    /* opacity: 0;
+    visibility: hidden; */
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
@@ -288,6 +301,7 @@ input[type="checkbox"] {
   display: none;
 }
 .text-p {
+  direction: rtl;
   padding: 20px;
   text-align: center;
   margin: auto;
