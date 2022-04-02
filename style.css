@@ -162,6 +162,7 @@ a {
 }
 
 .item {
+  position: relative;
   width: 90%;
   background-color: #18bc9c96;
   margin: 20px auto;
@@ -187,10 +188,10 @@ a {
 
 .fa-times-circle {
   width: fit-content;
-  position: relative;
+  position: absolute;
   cursor: pointer;
-  left: -96%;
-  top: -12px;
+  left: 30px;
+  top: 10px;
   font-size: 20px;
   display: none;
   transition: 0.5s;
@@ -211,6 +212,7 @@ a {
 
 .item h2 {
   line-height: 2;
+  margin-top: 10px;
 }
 
 .item h2:hover {
@@ -261,9 +263,13 @@ input[type="checkbox"] {
   display: none;
 }
 .hidden {
-  transition: 1s;
-  animation: hide 1.5s 1;
-  -webkit-animation: hide 1.5s 1;
+  transition: 0.9s;
+  animation: hide 0.9s 1;
+  -webkit-animation: hide 0.9s 1;
+  -webkit-transition: 0.9s;
+  -moz-transition: 0.9s;
+  -ms-transition: 0.9s;
+  -o-transition: 0.9s;
 }
 .hide {
   display: none;
@@ -283,6 +289,10 @@ input[type="checkbox"] {
     -ms-transform: scale(0.5);
     -o-transform: scale(0.5);
   }
+  /* 60%,
+  70%,
+  80%,
+  90%, */
   100% {
     transform: scale(0);
     /* display: none; */
@@ -293,6 +303,10 @@ input[type="checkbox"] {
     -ms-transform: scale(0);
     -o-transform: scale(0);
   }
+  /* 100% {
+    opacity: 0;
+    visibility: hidden;
+  } */
 }
 .show {
   display: block;
@@ -308,4 +322,23 @@ input[type="checkbox"] {
   font-size: 20px;
   line-height: 1.5;
   font-family: "Tajawal";
+}
+.hideAllOrShowAll .showOrHide {
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  display: block;
+  width: 15%;
+  padding: 10px;
+  font-size: 20px;
+  font-family: cursive;
+  background: red;
+
+  opacity: 0.7;
+  border: 0;
+  border-radius: 1rem;
+  color: #fff;
+}
+.hideAllOrShowAll .showOrHide:hover {
+  opacity: 1;
 }

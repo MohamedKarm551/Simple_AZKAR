@@ -12,12 +12,13 @@ let realCount = document.querySelectorAll(".count-is"); //المعدود الف�
 for (let index = 0; index < closed.length; index++) {
   closed[index].addEventListener("click", function () {
     Items[index].classList.add("hidden");
-    // Items[index].style.cssText = "transform: scale(0);    transition: 0.5s;";
-    // Items[index].addEventListener('transitionend', function(e) {
-    //   Items[index].classList.add('hide');
-    // }
+    // 2-4-2022 رمضان   اللي حلو المشكلة السطر ده وتلت سطور تحت
+    Items[index].classList.remove("show");
+    //  لما بيفضل حاطط الماوس على الزرار بتاع الاكس بيفضل الايموشن معلق وبيبوظ عشان كده هخفي الكلوز لما يضغط
+    closed[index].classList.add("hide");
     Items[index].addEventListener("transitionend", function () {
       this.classList.add("hide");
+      // this.classList.remove("show");
     });
   });
 }
@@ -77,6 +78,85 @@ for (var x = 0; x < arrayOfTitles.length; x++) {
   });
 }
 
-// function showAzkar() {
+let sOh = document.querySelectorAll(".hideAllOrShowAll  ");
 
-// }
+for (let index = 0; index < sOh.length; index++) {
+  // console.log(sOh[index].childNodes[1]);
+  // let azkarSabah = sOh[0].parentElement.childNodes[1].innerHTML;
+  // // اول ما تفتح الصفحة جمع كل اذكار الصباح هنا عشان اما احذفهم وعاوز اظهرهم تاني يبقو متجمعين معايا
+  // let azkarMasaa = sOh[1].parentElement.childNodes[1].innerHTML;
+  // // جمع كل أذكار المساء قبل الحذف عشان هعوزهم بعد الحذف
+  // console.log(azkarSabah);
+  // console.log(azkarMasaa);
+  let arrOfItemsInContainerSabah = Array.from(
+    sOh[0].parentElement.childNodes[1].children
+  );
+  let arrOfItemsInContainerMasaa = Array.from(
+    sOh[1].parentElement.childNodes[1].children
+  );
+  // جمع كل الايتمز اللي في الكونتاينر عشان تلف عليهم تحذف منهم كلاس الهايد
+  // console.log(arrOfItemsInContainerSabah);
+  // console.log(arrOfItemsInContainerMasaa);
+  sOh[index].childNodes[1].addEventListener("click", function () {
+    // لما اضفط على كل زرار
+
+    // console.log(this.parentElement.childNodes[1]);
+    // this.parentElement.childNodes[1]//container
+    // console.log(this.childNodes[1]);//button
+    // روح من الزرار للكونتاينر واخفيه واظهره
+    sOh[index].parentElement.childNodes[1].classList.toggle("hide");
+
+    if (this.innerText == "Show All") {
+      // لو لقيت الكلمة اللي في الزرار هي اظهر الكل
+
+      if (index == 0) {
+        // console.log(index);
+        // console.log(arrOfItemsInContainerSabah);
+        for (
+          let index = 0;
+          index < arrOfItemsInContainerSabah.length;
+          index++
+        ) {
+          arrOfItemsInContainerSabah[index].classList.remove("hide");
+          arrOfItemsInContainerSabah[index].classList.remove("hidden");
+          // arrOfItemsInContainerSabah[index].classList.add("show");
+          // 2-4-2022 اللي حل المشكلة هما التلات سطور دول
+          arrOfItemsInContainerSabah[index].classList.add("show");
+
+          arrOfItemsInContainerSabah[
+            index
+          ].childNodes[9].dataset.countableNumber = 1;
+          arrOfItemsInContainerSabah[index].childNodes[11].innerText = "0";
+        }
+      }
+      if (index == 1) {
+        for (
+          let index = 0;
+          index < arrOfItemsInContainerMasaa.length;
+          index++
+        ) {
+          console.log(
+            arrOfItemsInContainerMasaa[index].childNodes[9].dataset
+              .countableNumber
+          );
+          // console.log(arrOfItemsInContainerMasaa[index].getAttribute("class"));
+          arrOfItemsInContainerMasaa[index].classList.remove("hide");
+          arrOfItemsInContainerMasaa[index].classList.remove("hidden");
+          // 2-4-2022 اللي حل المشكلة هما التلات سطور دول
+          arrOfItemsInContainerMasaa[index].classList.add("show");
+
+          arrOfItemsInContainerMasaa[
+            index
+          ].childNodes[9].dataset.countableNumber = 1;
+          arrOfItemsInContainerMasaa[index].childNodes[11].innerText = "0";
+        }
+      }
+
+      this.innerText = "Hide All";
+      this.style.backgroundColor = "red";
+    } else {
+      this.innerText = "Show All";
+      this.style.backgroundColor = "green";
+    }
+  });
+}
