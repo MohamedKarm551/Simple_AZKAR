@@ -410,8 +410,92 @@
           </button>
           <span class="count-is">0</span>
         </div>
+
         <!--  -->
 
+        <div class="item">
+          <label for="close"> <i class="fas fa-times-circle"></i></label>
+          <input type="checkbox" name="close" />
+          <h2>
+            أَعـوذُ بِكَلِمـاتِ اللّهِ التّـامّـاتِ مِنْ شَـرِّ ما خَلَـق.
+          </h2>
+          <p class="count-total">3</p>
+          <button class="count-button" data-count="3" data-countable-Number="1">
+            Count
+          </button>
+          <span class="count-is">0</span>
+        </div>
+        <!--  -->
+        <div class="item">
+          <label for="close"> <i class="fas fa-times-circle"></i></label>
+          <input type="checkbox" name="close" />
+          <h2>
+            يَا حَيُّ يَا قيُّومُ بِرَحْمَتِكَ أسْتَغِيثُ أصْلِحْ لِي شَأنِي
+            كُلَّهُ وَلاَ تَكِلْنِي إلَى نَفْسِي طَـرْفَةَ عَيْنٍ.
+          </h2>
+          <p class="count-total">3</p>
+          <button class="count-button" data-count="3" data-countable-Number="1">
+            Count
+          </button>
+          <span class="count-is">0</span>
+        </div>
+
+        <!--  -->
+        <div class="item">
+          <label for="close"> <i class="fas fa-times-circle"></i></label>
+          <input type="checkbox" name="close" />
+          <h2>
+            اللّهُـمَّ إِنِّـي أسْـأَلُـكَ العَـفْوَ وَالعـافِـيةَ في الدُّنْـيا
+            وَالآخِـرَة ، اللّهُـمَّ إِنِّـي أسْـأَلُـكَ العَـفْوَ وَالعـافِـيةَ
+            في ديني وَدُنْـيايَ وَأهْـلي وَمالـي ، اللّهُـمَّ اسْتُـرْ عـوْراتي
+            وَآمِـنْ رَوْعاتـي ، اللّهُـمَّ احْفَظْـني مِن بَـينِ يَدَيَّ وَمِن
+            خَلْفـي وَعَن يَمـيني وَعَن شِمـالي ، وَمِن فَوْقـي ، وَأَعـوذُ
+            بِعَظَمَـتِكَ أَن أُغْـتالَ مِن تَحْتـي.
+          </h2>
+          <p class="count-total">1</p>
+          <button class="count-button" data-count="1" data-countable-Number="1">
+            Count
+          </button>
+          <span class="count-is">0</span>
+        </div>
+
+        <!--  -->
+        <div class="item">
+          <label for="close"> <i class="fas fa-times-circle"></i></label>
+          <input type="checkbox" name="close" />
+          <h2>
+            اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ الْهَمِّ وَالْحَزَنِ، وَأَعُوذُ
+            بِكَ مِنْ الْعَجْزِ وَالْكَسَلِ، وَأَعُوذُ بِكَ مِنْ الْجُبْنِ
+            وَالْبُخْلِ، وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ، وَقَهْرِ
+            الرِّجَالِ.
+          </h2>
+          <p class="count-total">3</p>
+          <button class="count-button" data-count="3" data-countable-Number="1">
+            Count
+          </button>
+          <span class="count-is">0</span>
+        </div>
+
+        <!--  -->
+        <div class="item">
+          <label for="close"> <i class="fas fa-times-circle"></i></label>
+          <input type="checkbox" name="close" />
+          <h2>
+            اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ
+            عَلَى آلِ إِبْرَاهِيمَ،إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ
+            عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى آلِ
+            إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ.
+          </h2>
+          <p class="count-total">10</p>
+          <button
+            class="count-button"
+            data-count="10"
+            data-countable-Number="1"
+          >
+            Count
+          </button>
+          <span class="count-is">0</span>
+        </div>
         <!--  -->
         <div class="item">
           <label for="close"> <i class="fas fa-times-circle"></i></label>
@@ -528,6 +612,33 @@
         >
       </p>
     </div>
+    <!--  -->
+    <div class="task-title">عرض لسور و آيات القرآن الكريم</div>
+    <div class="class-hover-title" onclick="getSurah()">جلب السور</div>
+    <div class="container Hide getSurah"></div>
+    <!--  -->
+    <section class="popUp">
+      <div class="container"></div>
+      <div class="close-ayah">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          onclick="closePopUp()"
+        >
+          <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
+          />
+        </svg>
+      </div>
+    </section>
+    <!--  -->
+    <!--  -->
+    <div class="task-title">أوقات الصلاة ( مصر)</div>
+    <div class="class-hover-title" onclick="getTimes()">
+      أوقات الصلاة في مصر
+    </div>
+    <div class="container Hide time-of-pray"></div>
 
     <script src="app.js"></script>
   </body>

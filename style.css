@@ -342,3 +342,110 @@ input[type="checkbox"] {
 .hideAllOrShowAll .showOrHide:hover {
   opacity: 1;
 }
+/*  */
+.surah,
+.time-of-pray .card {
+  cursor: pointer;
+  width: 12%;
+  border: 1px solid;
+  text-align: center;
+  padding: 1%;
+  line-height: 2;
+  margin: 10px 5px;
+  transition: all 0.1s ease-out;
+}
+.time-of-pray .card {
+  width: 25%;
+}
+@media (max-width: 900px) {
+  .surah {
+    width: 25%;
+  }
+}
+.surah:hover,
+.time-of-pray .card:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+.time-of-pray .card:hover {
+  background: var(--second-color);
+}
+.container.getSurah,
+.container.time-of-pray {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  direction: rtl;
+}
+.surah p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+}
+/*  */
+.popUp {
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  height: 100vh;
+  top: 0;
+  z-index: 1000;
+  left: 0;
+  overflow: scroll;
+  /*  */
+  transform: scale(0);
+  /*  */
+}
+
+.popUp::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.popUp::-webkit-scrollbar-thumb {
+  background: #247cff;
+  border-radius: 36px;
+  border: 1px solid;
+}
+.popUp::-webkit-scrollbar-thumb:hover {
+  background-color: #2b5464;
+}
+.popUp::-webkit-scrollbar-track {
+  background: #1c1010;
+}
+.popUp .container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 8% auto;
+}
+.popUp .container .ayah {
+  border: 1px solid;
+  width: 100%;
+  margin: 10px 0;
+  padding: 1%;
+}
+.popUp .container .ayah h2 {
+  line-height: 2;
+}
+.popUp .close-ayah {
+  position: fixed;
+  top: 5%;
+  right: 4%;
+}
+.popUp .close-ayah svg {
+  width: 2rem;
+  height: 3rem;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+.popUp .close-ayah svg:hover {
+  fill: red;
+}
+/* ================================== */

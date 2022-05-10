@@ -43,7 +43,13 @@ for (var i = 0; i < buttonsList.length; i++) {
       // console.log("end");
       span.innerHTML = n;
       icon.classList.add("show");
+      //   border: 2px solid green;
+      // background: #299d297d;
+      // color: #fff;
 
+      this.style.backgroundColor = "#299d297d";
+      this.style.color = " #fff";
+      this.style.border = " 2px solid green";
       // console.log(n);
       //   span.inn = num;
     }
@@ -94,6 +100,7 @@ for (let index = 0; index < sOh.length; index++) {
   let arrOfItemsInContainerMasaa = Array.from(
     sOh[1].parentElement.childNodes[1].children
   );
+
   // جمع كل الايتمز اللي في الكونتاينر عشان تلف عليهم تحذف منهم كلاس الهايد
   // console.log(arrOfItemsInContainerSabah);
   // console.log(arrOfItemsInContainerMasaa);
@@ -106,7 +113,7 @@ for (let index = 0; index < sOh.length; index++) {
     // روح من الزرار للكونتاينر واخفيه واظهره
     sOh[index].parentElement.childNodes[1].classList.toggle("hide");
 
-    if (this.innerText == "Show All") {
+    if (this.innerText == "Show All and reset") {
       // لو لقيت الكلمة اللي في الزرار هي اظهر الكل
 
       if (index == 0) {
@@ -127,6 +134,16 @@ for (let index = 0; index < sOh.length; index++) {
             index
           ].childNodes[9].dataset.countableNumber = 1;
           arrOfItemsInContainerSabah[index].childNodes[11].innerText = "0";
+          //
+        }
+        //مر على كل زرار في الأذكار الصباحيه وهي نصف الازارا المخزنه في الاراي  رجعه للشكل الأصلي بتاعه
+        for (let i = 0; i < arrOfItemsInContainerSabah.length; i++) {
+          // arrOfItemsInContainerMasaa[i].children[4]//ده الزرار من الايتم
+          arrOfItemsInContainerSabah[i].children[4].style.border =
+            "2px solid #000";
+          arrOfItemsInContainerSabah[i].children[4].style.backgroundColor =
+            "#fff";
+          arrOfItemsInContainerSabah[i].children[4].style.color = "#000";
         }
       }
       if (index == 1) {
@@ -135,10 +152,10 @@ for (let index = 0; index < sOh.length; index++) {
           index < arrOfItemsInContainerMasaa.length;
           index++
         ) {
-          console.log(
-            arrOfItemsInContainerMasaa[index].childNodes[9].dataset
-              .countableNumber
-          );
+          // console.log(
+          //   arrOfItemsInContainerMasaa[index].childNodes[9].dataset
+          //     .countableNumber
+          // );
           // console.log(arrOfItemsInContainerMasaa[index].getAttribute("class"));
           arrOfItemsInContainerMasaa[index].classList.remove("hide");
           arrOfItemsInContainerMasaa[index].classList.remove("hidden");
@@ -149,14 +166,95 @@ for (let index = 0; index < sOh.length; index++) {
             index
           ].childNodes[9].dataset.countableNumber = 1;
           arrOfItemsInContainerMasaa[index].childNodes[11].innerText = "0";
+          //مر على كل زرار في الأذكار المسائية وهي النصف الثاني من الازار المخزنه في الاراي  رجعه للشكل الأصلي بتاعه
+        }
+        for (let i = 0; i < arrOfItemsInContainerMasaa.length; i++) {
+          // arrOfItemsInContainerMasaa[i].children[4]//ده الزرار من الايتم
+          arrOfItemsInContainerMasaa[i].children[4].style.border =
+            "2px solid #000";
+          arrOfItemsInContainerMasaa[i].children[4].style.backgroundColor =
+            "#fff";
+          arrOfItemsInContainerMasaa[i].children[4].style.color = "#000";
         }
       }
 
       this.innerText = "Hide All";
       this.style.backgroundColor = "red";
     } else {
-      this.innerText = "Show All";
+      this.innerText = "Show All and reset";
       this.style.backgroundColor = "green";
     }
   });
 }
+//
+//=================== ====================
+// http://api.alquran.cloud/v1/meta
+// getSurah();
+let containerQuran = document.querySelector(" .container.getSurah");
+let popUp = document.querySelector(".popUp");
+let popUpContainer = document.querySelector(".popUp .container");
+
+function getSurah() {
+  fetch("http://api.alquran.cloud/v1/meta")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let surahs = data.data.surahs.references;
+      for (let index = 0; index < surahs.length; index++) {
+        containerQuran.innerHTML += `
+       <div class="surah">
+       <p>(${surahs[index].number})</p>
+       <p>${surahs[index].name}</p>
+       <p>${surahs[index].englishName}</p>
+       <p>(${surahs[index].numberOfAyahs})</p>
+     </div>`;
+      }
+      let suraClick = document.querySelectorAll(" .container .surah");
+      // console.log(suraClick);
+
+      for (let i = 0; i < suraClick.length; i++) {
+        suraClick[i].addEventListener("click", () => {
+          popUp.style.transform = "scale(1)";
+          fetch(`https://api.alquran.cloud/v1/surah/${i + 1}`)
+            .then((response) => response.json())
+            .then((data) => {
+              // console.log(data.data.ayahs);
+              popUpContainer.innerHTML = "";
+              // remove recently text
+              // show ayaht of surah
+              for (let j = 0; j < data.data.ayahs.length; j++) {
+                popUpContainer.innerHTML += `        <div class="ayah"><h2>
+                (${j + 1})
+                ${data.data.ayahs[j].text}</h2></div>`;
+              }
+            });
+        });
+      }
+    });
+
+  // console.log(surahs);
+}
+// =================== close pop Up =================
+function closePopUp() {
+  popUp.style.transform = "scale(0)";
+}
+// ================================
+// ================================
+function getTimes() {
+  let timePrayContainer = document.querySelector(".time-of-pray.container");
+  // let card = document.querySelector(".time-of-pray .container  .card ");
+  fetch(
+    "https://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=8"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      let times = data.data.timings;
+      for (let time in times)
+        timePrayContainer.innerHTML += `
+    <div class="card">
+    <p>${time}</p>
+    <p>${times[time]}</p>
+  </div>`;
+    });
+}
+// =============================
